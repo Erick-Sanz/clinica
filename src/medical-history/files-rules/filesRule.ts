@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const medicalHistoriesFiles = {
   storage: diskStorage({
-    destination: '/tmp/uploads/',
+    destination: './uploads/',
     filename: (req, file, callback) => {
       const fileExtName = extname(file.originalname);
       callback(null, `${uuidv4()}${fileExtName}`);
