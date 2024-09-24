@@ -1,3 +1,5 @@
+para ejecutar el proyecto se necesita una cadena de conexion a una base de datos de mongoDb, en mi caso utilice un servidor gratuito, y tambien la ruta donde se almaceran tus archivos
+
 docker-compose up -d
 
 docker build -t clinica-app .
