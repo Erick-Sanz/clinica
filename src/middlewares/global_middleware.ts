@@ -5,7 +5,7 @@ import {
   NestMiddleware,
 } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
-import { GlobalLogger } from 'src/loggers/logger';
+import { GlobalLogger } from '../loggers/logger';
 
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {

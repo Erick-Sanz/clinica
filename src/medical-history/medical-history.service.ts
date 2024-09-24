@@ -9,8 +9,8 @@ import { UpdateMedicalHistoryDto } from './dto/update-medical-history.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { MedicalHistory } from './entities/medical-history.entity';
 import { Model } from 'mongoose';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
-import { Patient } from 'src/patients/entities/patient.entity';
+import { PaginationDto } from '../common/dto/pagination.dto';
+import { Patient } from '../patients/entities/patient.entity';
 import { join } from 'path';
 import fs from 'fs';
 

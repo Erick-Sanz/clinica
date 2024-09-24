@@ -6,7 +6,7 @@ import {
   MedicalHistory,
   SchemaMedicalHistory,
 } from './entities/medical-history.entity';
-import { Patient, PatientSchema } from 'src/patients/entities/patient.entity';
+import { Patient, PatientSchema } from '../patients/entities/patient.entity';
 
 @Module({
   imports: [

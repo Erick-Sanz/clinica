@@ -8,7 +8,7 @@ import { UpdatePatientDto } from './dto/update-patient.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Patient } from './entities/patient.entity';
 import { Model } from 'mongoose';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { PaginationDto } from '../common/dto/pagination.dto';
 
 @Injectable()
 export class PatientsService {

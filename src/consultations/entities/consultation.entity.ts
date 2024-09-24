@@ -1,7 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schema as MongooseSchema } from 'mongoose';
-import { Doctor } from 'src/doctors/entities/doctor.entity';
-import { Patient } from 'src/patients/entities/patient.entity';
 
 @Schema({ timestamps: true })
 export class Consultation {
@@ -9,13 +7,13 @@ export class Consultation {
   @Prop({
     trim: true,
     type: MongooseSchema.Types.ObjectId,
-    ref: Patient.name,
+    ref: 'Patient',
   })
   patientId: MongooseSchema.Types.ObjectId;
   @Prop({
     trim: true,
     type: MongooseSchema.Types.ObjectId,
-    ref: Doctor.name,
+    ref: 'Doctor',
   })
   doctorId: MongooseSchema.Types.ObjectId;
   @Prop({

@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { ConsultationsService } from './consultations.service';
 import { CreateConsultationDto } from './dto/create-consultation.dto';
-import { MongoId } from 'src/common/dto/id-mongo';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { MongoId } from '../common/dto/id-mongo';
+import { PaginationDto } from '../common/dto/pagination.dto';
 import { UpdateConsultationDto } from './dto/update-consultation.dto';
 
 @Controller('consultations')

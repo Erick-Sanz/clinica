@@ -8,7 +8,7 @@ import {
   IsString,
   Length,
 } from 'class-validator';
-import { SafeMongoIdTransform } from 'src/common/helpers/cast-id-mongo';
+import { SafeMongoIdTransform } from '../../common/helpers/cast-id-mongo';
 
 export class CreateMedicalHistoryDto {
   @IsNotEmpty()

@@ -13,8 +13,8 @@ import {
 import { MedicalHistoryService } from './medical-history.service';
 import { CreateMedicalHistoryDto } from './dto/create-medical-history.dto';
 import { UpdateMedicalHistoryDto } from './dto/update-medical-history.dto';
-import { MongoId } from 'src/common/dto/id-mongo';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { MongoId } from '../common/dto/id-mongo';
+import { PaginationDto } from '../common/dto/pagination.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { medicalHistoriesFiles } from './files-rules/filesRule';
 

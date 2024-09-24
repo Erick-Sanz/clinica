@@ -8,9 +8,9 @@ import { UpdateConsultationDto } from './dto/update-consultation.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Consultation } from './entities/consultation.entity';
 import { Model } from 'mongoose';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
-import { Doctor } from 'src/doctors/entities/doctor.entity';
-import { Patient } from 'src/patients/entities/patient.entity';
+import { PaginationDto } from '../common/dto/pagination.dto';
+import { Doctor } from '../doctors/entities/doctor.entity';
+import { Patient } from '../patients/entities/patient.entity';
 
 @Injectable()
 export class ConsultationsService {

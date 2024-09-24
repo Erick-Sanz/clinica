@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConsultationsService } from './consultations.service';
 import { ConsultationsController } from './consultations.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Doctor, DoctorSchema } from 'src/doctors/entities/doctor.entity';
+import { Doctor, DoctorSchema } from '../doctors/entities/doctor.entity';
 import {
   Consultation,
   ConsultationSchema,
 } from './entities/consultation.entity';
-import { Patient, PatientSchema } from 'src/patients/entities/patient.entity';
+import { Patient, PatientSchema } from '../patients/entities/patient.entity';
 
 @Module({
   imports: [

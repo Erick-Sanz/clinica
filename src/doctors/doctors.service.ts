@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Doctor } from './entities/doctor.entity';
 import { Model } from 'mongoose';
-import { PaginationDto } from 'src/common/dto/pagination.dto';
+import { PaginationDto } from '../common/dto/pagination.dto';
 import { SchedulesInterface } from './interfaces/schedules';
+import { UpdateDoctorDto } from './dto/update-doctor.dto';
 
 @Injectable()
 export class DoctorsService {
@@ -458,6 +459,18 @@ export class DoctorsService {
 
   async create(createDoctorDto: CreateDoctorDto) {
     return await this.doctorModel.create(createDoctorDto);
+  }
+
+  async update(id: string, updateDoctorDto: UpdateDoctorDto) {
+    const doctor = await this.doctorModel.findOneAndUpdate(
+      { _id: id },
+      updateDoctorDto,
+      { new: true },
+    );
+    if (!doctor) {
+      throw new NotFoundException('The doctor does not exist');
+    }
+    return doctor;
   }
 
   async findAll(paginationDto: PaginationDto) {
