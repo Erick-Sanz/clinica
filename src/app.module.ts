@@ -20,7 +20,7 @@ import { join } from 'path';
     ConsultationsModule,
     DoctorsModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads'),
+      rootPath: join(__dirname, '..', '/temp'),
       serveRoot: '/files',
     }),
   ],

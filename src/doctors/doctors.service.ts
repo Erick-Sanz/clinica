@@ -5,7 +5,6 @@ import { Doctor } from './entities/doctor.entity';
 import { Model } from 'mongoose';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { SchedulesInterface } from './interfaces/schedules';
-import { Query } from 'express-serve-static-core';
 
 @Injectable()
 export class DoctorsService {
@@ -434,9 +433,7 @@ export class DoctorsService {
       ],
     };
   }
-  test(query: Query) {
-    const qu = query;
-  }
+
   unifySchedules() {
     const schedules = this.getSchedules();
     return this.unifyAllSchedules(schedules);

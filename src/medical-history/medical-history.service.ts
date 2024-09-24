@@ -12,7 +12,6 @@ import { Model } from 'mongoose';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { Patient } from 'src/patients/entities/patient.entity';
 import { join } from 'path';
-import * as fs from 'fs';
 
 @Injectable()
 export class MedicalHistoryService {
@@ -102,20 +101,20 @@ export class MedicalHistoryService {
   }
 
   removeFiles(fileNames: string[]) {
-    fileNames.forEach((fileName) => {
-      const filePath = join(
-        process.cwd(),
-        'uploads',
-        fileName.split('/').pop(),
-      );
-      if (fs.existsSync(filePath)) {
-        fs.unlink(filePath, (err) => {
-          if (err) {
-            throw new BadRequestException('Error deleting file');
-          }
-        });
-      }
-    });
+    // fileNames.forEach((fileName) => {
+    //   const filePath = join(
+    //     process.cwd(),
+    //     'uploads',
+    //     fileName.split('/').pop(),
+    //   );
+    //   if (fs.existsSync(filePath)) {
+    //     fs.unlink(filePath, (err) => {
+    //       if (err) {
+    //         throw new BadRequestException('Error deleting file');
+    //       }
+    //     });
+    //   }
+    // });
   }
 
   async remove(id: string) {
