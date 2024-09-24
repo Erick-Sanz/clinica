@@ -1,11 +1,17 @@
 para ejecutar el proyecto se necesita una cadena de conexion a una base de datos de mongoDb, en mi caso utilice un servidor gratuito, y tambien la ruta donde se almaceran tus archivos
 
+Para ejecutarlo desde docker-compose:
 docker-compose up -d
 
+Para construir la imagen de docker
 docker build -t clinica-app .
 docker run -d -p 8000:8000 clinica-app
 
-documentacion: https://documenter.getpostman.com/view/9677721/2sAXqwXekr
+Para ejecutar las pruebas:
+npm run test
+
+Documentacion:
+https://documenter.getpostman.com/view/9677721/2sAXqwXekr
 
 link del proyecto desplegado:
 https://clinica-git-master-erick-sanzs-projects.vercel.app/
