@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  clinica-app:
+    container_name: clinica-app
+    build: .
+    ports:
+      - '8000:8000'
+    environment:
+      - URL_DOCS=${URL_DOCS}
+      - MONGODB_URL=${MONGODB_URL}

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clinica-app
+  labels:
+    app: clinica-app
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: clinica-app
+  template:
+    metadata:
+      labels:
+        app: clinica-app
+    spec:
+      containers:
+      - name: clinica-app
+        image: ericksanz/clinica-app:latest  
+        ports:
+        - containerPort: 8000
+        env:
+        - name: NODE_ENV
+          value: "production"
