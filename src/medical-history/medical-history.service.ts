@@ -1,18 +1,14 @@
 import {
-  BadRequestException,
   ConflictException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
 import { CreateMedicalHistoryDto } from './dto/create-medical-history.dto';
-import { UpdateMedicalHistoryDto } from './dto/update-medical-history.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { MedicalHistory } from './entities/medical-history.entity';
 import { Model } from 'mongoose';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { Patient } from '../patients/entities/patient.entity';
-import { join } from 'path';
-import fs from 'fs';
 
 @Injectable()
 export class MedicalHistoryService {
@@ -62,60 +58,6 @@ export class MedicalHistoryService {
       throw new NotFoundException('Not found medical history');
     }
     return medicalHistory;
-  }
-
-  async update(
-    id: string,
-    updateMedicalHistoryDto: UpdateMedicalHistoryDto,
-    files: Array<Express.Multer.File>,
-  ) {
-    const beforeMedicalHistory = await this.medicalHistoryModel.findById(id, {
-      testResult: 1,
-    });
-    if (!beforeMedicalHistory) {
-      throw new NotFoundException('Not found medical history');
-    }
-    let testResult = updateMedicalHistoryDto?.testResult
-      ? updateMedicalHistoryDto.testResult
-      : [];
-    if (files?.length === 0 && !updateMedicalHistoryDto?.testResult) {
-      testResult = beforeMedicalHistory.testResult;
-    }
-    if (testResult) {
-      const deletedFiles = beforeMedicalHistory.testResult.filter(
-        (result) => !testResult.includes(result),
-      );
-      this.removeFiles(deletedFiles);
-    }
-    if (files?.length > 0) {
-      const newFiles = files.map((file) => {
-        return `${this.URL_DOCS}${file.filename}`;
-      });
-      testResult.push(...newFiles);
-    }
-    const medicalHistory = await this.medicalHistoryModel.findByIdAndUpdate(
-      id,
-      { ...updateMedicalHistoryDto, testResult },
-      { new: true },
-    );
-    return medicalHistory;
-  }
-
-  removeFiles(fileNames: string[]) {
-    fileNames.forEach((fileName) => {
-      const filePath = join(
-        process.cwd(),
-        'uploads',
-        fileName.split('/').pop(),
-      );
-      if (fs.existsSync(filePath)) {
-        fs.unlink(filePath, (err) => {
-          if (err) {
-            throw new BadRequestException('Error deleting file');
-          }
-        });
-      }
-    });
   }
 
   async remove(id: string) {

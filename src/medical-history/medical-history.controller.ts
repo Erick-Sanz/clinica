@@ -47,20 +47,6 @@ export class MedicalHistoryController {
     return this.medicalHistoryService.findOne(params.id);
   }
 
-  @Patch(':id')
-  @UseInterceptors(FilesInterceptor('files', 10, medicalHistoriesFiles))
-  update(
-    @UploadedFiles() files: Array<Express.Multer.File>,
-    @Param() params: MongoId,
-    @Body() updateMedicalHistoryDto: UpdateMedicalHistoryDto,
-  ) {
-    return this.medicalHistoryService.update(
-      params.id,
-      updateMedicalHistoryDto,
-      files,
-    );
-  }
-
   @Delete(':id')
   remove(@Param() params: MongoId) {
     return this.medicalHistoryService.remove(params.id);
