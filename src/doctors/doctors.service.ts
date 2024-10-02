@@ -473,6 +473,18 @@ export class DoctorsService {
     return doctor;
   }
 
+  async delete(id: string) {
+    const doctor = await this.doctorModel.findOneAndUpdate(
+      { _id: id },
+      { isDeleted: true },
+      { new: true },
+    );
+    if (!doctor) {
+      throw new NotFoundException('The doctor does not exist');
+    }
+    return doctor;
+  }
+
   async findAll(paginationDto: PaginationDto) {
     const { limit, skip } = paginationDto;
     return await this.doctorModel

@@ -6,6 +6,7 @@ import {
   Query,
   Patch,
   Param,
+  Delete,
 } from '@nestjs/common';
 import { DoctorsService } from './doctors.service';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
@@ -30,6 +31,11 @@ export class DoctorsController {
   @Patch(':id')
   update(@Param() params: MongoId, @Body() updateDoctorDto: UpdateDoctorDto) {
     return this.doctorsService.update(params.id, updateDoctorDto);
+  }
+
+  @Delete(':id')
+  delete(@Param() params: MongoId) {
+    return this.doctorsService.delete(params.id);
   }
 
   @Get('availability')
