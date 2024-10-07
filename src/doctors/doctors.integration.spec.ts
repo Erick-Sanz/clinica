@@ -36,8 +36,13 @@ describe('Doctors (integration)', () => {
 
   it('/doctors (POST)', async () => {
     const doctor = {
+      name: '    User Testing    ',
+      position: 'Doctor',
+    };
+
+    const doctorWithTrim = {
       name: 'User Testing',
-      position: 'Doctor Testing',
+      position: 'Doctor',
     };
 
     const response = await request(app.getHttpServer())
@@ -45,7 +50,7 @@ describe('Doctors (integration)', () => {
       .send(doctor);
     expect(response.status).toBe(201);
     expect(response.body).toMatchObject({
-      ...doctor,
+      ...doctorWithTrim,
       isDeleted: false,
     });
     expect(response.body).toHaveProperty('_id');
