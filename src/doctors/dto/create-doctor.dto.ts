@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, Length, Matches } from 'class-validator';
 
 export class CreateDoctorDto {
@@ -7,9 +8,11 @@ export class CreateDoctorDto {
     message: 'The name must not contain special characters',
   })
   @Length(3, 40)
+  @ApiProperty({ example: 'John Doe', required: true })
   name: string;
   @IsNotEmpty()
   @IsString()
+  @ApiProperty({ example: 'Doctor', required: true })
   @Matches(/^[a-zA-Z0-9]+$/, {
     message: 'The position must not contain special characters',
   })

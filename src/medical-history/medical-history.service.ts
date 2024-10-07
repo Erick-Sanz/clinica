@@ -44,7 +44,7 @@ export class MedicalHistoryService {
     const { skip, limit } = paginationDto;
     return await this.medicalHistoryModel
       .find({
-        patient: patientId,
+        patientId,
         isDeleted: false,
       })
       .skip(skip)

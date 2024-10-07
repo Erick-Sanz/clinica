@@ -13,12 +13,15 @@ import { CreatePatientDto } from './dto/create-patient.dto';
 import { UpdatePatientDto } from './dto/update-patient.dto';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { MongoId } from '../common/dto/id-mongo';
+import { ApiConsumes, ApiOperation } from '@nestjs/swagger';
 
 @Controller('patients')
 export class PatientsController {
   constructor(private readonly patientsService: PatientsService) {}
 
   @Post()
+  @ApiOperation({ summary: 'Crear un nuevo paciente' })
+  @ApiConsumes('application/json')
   create(@Body() createPatientDto: CreatePatientDto) {
     return this.patientsService.create(createPatientDto);
   }
