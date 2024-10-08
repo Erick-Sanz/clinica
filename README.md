@@ -18,6 +18,7 @@ En esta aplicacion se demuestra principalmente la integracion continua (CI), el 
 - Github Actions
 - Swagger
 - Commitizen
+- Cloudinary
 - Husky
 - Eslint
 - Prettier
@@ -37,10 +38,9 @@ npm run test
 ### Documentación:
 
 https://documenter.getpostman.com/view/9677721/2sAXqwXekr
+
 https://clinica-git-master-erick-sanzs-projects.vercel.app/api
 
 ### Proyecto desplegado:
 
 https://clinica-git-master-erick-sanzs-projects.vercel.app/
-
-Nota: cuando se crea un nuevo historial médico, se pueden adjuntar resultados de la prueba medica en caso de tenerlos, pueden ser pdfs o imágenes, sin embargo en la capa gratuita de vercel no es posible subir archivos, para ello hay mejores alternativas de paga tales como s3, Azure Blob Storage, Google Cloud Storage, entre otros y dado que este es un ejemplo se opto por unicamente por servicios gratuitos

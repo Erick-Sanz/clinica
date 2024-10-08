@@ -9,31 +9,28 @@ import { MedicalHistory } from './entities/medical-history.entity';
 import { Model } from 'mongoose';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { Patient } from '../patients/entities/patient.entity';
+import { CloudinaryService } from 'src/services/cloudinary/cloudinary.service';
 
 @Injectable()
 export class MedicalHistoryService {
-  private URL_DOCS;
   constructor(
     @InjectModel(MedicalHistory.name)
     private readonly medicalHistoryModel: Model<MedicalHistory>,
     @InjectModel(Patient.name)
     private readonly patientModel: Model<Patient>,
-  ) {
-    this.URL_DOCS = process.env.URL_DOCS;
-  }
+    private readonly cloudinaryService: CloudinaryService,
+  ) {}
 
   async create(
     createMedicalHistoryDto: CreateMedicalHistoryDto,
     files: Array<Express.Multer.File>,
   ) {
-    const testResult = files.map((file) => {
-      return `${this.URL_DOCS}${file.filename}`;
-    });
     const { patientId } = createMedicalHistoryDto;
     const patientFound = await this.patientModel.findById(patientId);
     if (!patientFound) {
       throw new ConflictException('The patient does not exist');
     }
+    const testResult = await this.cloudinaryService.uploadFiles(files);
     return await this.medicalHistoryModel.create({
       ...createMedicalHistoryDto,
       testResult,
