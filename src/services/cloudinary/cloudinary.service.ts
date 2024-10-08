@@ -1,6 +1,6 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { v2 as cloudinary } from 'cloudinary';
-import { TestResult } from 'src/medical-history/entities/medical-history.entity';
+import { TestResult } from '../../medical-history/entities/medical-history.entity';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
