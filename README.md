@@ -39,8 +39,6 @@ npm run test
 
 https://documenter.getpostman.com/view/9677721/2sAXqwXekr
 
-https://clinica-git-master-erick-sanzs-projects.vercel.app/api
-
 ### Proyecto desplegado:
 
-https://clinica-git-master-erick-sanzs-projects.vercel.app/
+https://clinica-git-main-erick-sanzs-projects.vercel.app
