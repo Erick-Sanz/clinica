@@ -7,7 +7,7 @@ import {
   SchemaMedicalHistory,
 } from './entities/medical-history.entity';
 import { Patient, PatientSchema } from '../patients/entities/patient.entity';
-import { ServicesModule } from 'src/services/services.module';
+import { ServicesModule } from '../services/services.module';
 
 @Module({
   imports: [

@@ -9,7 +9,7 @@ import { MedicalHistory } from './entities/medical-history.entity';
 import { Model } from 'mongoose';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { Patient } from '../patients/entities/patient.entity';
-import { CloudinaryService } from 'src/services/cloudinary/cloudinary.service';
+import { CloudinaryService } from '../services/cloudinary/cloudinary.service';
 
 @Injectable()
 export class MedicalHistoryService {
