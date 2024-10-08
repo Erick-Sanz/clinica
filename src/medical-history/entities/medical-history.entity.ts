@@ -1,6 +1,18 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Schema as MongooseSchema } from 'mongoose';
 
+export class TestResult {
+  @Prop({
+    trim: true,
+    type: String,
+  })
+  public_id: string;
+  @Prop({
+    trim: true,
+    type: String,
+  })
+  secure_url: string;
+}
 @Schema({ timestamps: true })
 export class MedicalHistory {
   _id: MongooseSchema.Types.ObjectId;
@@ -46,10 +58,9 @@ export class MedicalHistory {
   })
   adverseReactions: string[];
   @Prop({
-    trim: true,
-    type: [String],
+    type: [TestResult],
   })
-  testResult: string[];
+  testResult: TestResult[];
   @Prop({
     type: Boolean,
     index: true,

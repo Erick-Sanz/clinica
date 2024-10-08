@@ -8,8 +8,7 @@ import { MedicalHistoryModule } from './medical-history/medical-history.module';
 import { ConsultationsModule } from './consultations/consultations.module';
 import { CommonModule } from './common/common.module';
 import { DoctorsModule } from './doctors/doctors.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import { ServicesModule } from './services/services.module';
 
 @Module({
   imports: [
@@ -19,10 +18,7 @@ import { join } from 'path';
     MedicalHistoryModule,
     ConsultationsModule,
     DoctorsModule,
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads'),
-      serveRoot: '/files',
-    }),
+    ServicesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

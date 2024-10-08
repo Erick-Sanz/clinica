@@ -14,7 +14,6 @@ async function bootstrap() {
     .setTitle('Clinica')
     .setDescription('API de la clinica')
     .setVersion('1.0')
-    .addTag('clinica')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

@@ -7,9 +7,11 @@ import {
   SchemaMedicalHistory,
 } from './entities/medical-history.entity';
 import { Patient, PatientSchema } from '../patients/entities/patient.entity';
+import { ServicesModule } from 'src/services/services.module';
 
 @Module({
   imports: [
+    ServicesModule,
     MongooseModule.forFeature([
       { name: MedicalHistory.name, schema: SchemaMedicalHistory },
       { name: Patient.name, schema: PatientSchema },
